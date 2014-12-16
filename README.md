@@ -3,6 +3,8 @@ Linie
 
 http://linie.readthedocs.org/en/latest/
 
+    pip install linie
+
 A collection of handy utilities for logging.
 
 ## KwargLogger
