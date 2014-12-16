@@ -1,6 +1,8 @@
 Linie
 =====
 
+http://linie.readthedocs.org/en/latest/
+
 A collection of handy utilities for logging.
 
 ## KwargLogger
