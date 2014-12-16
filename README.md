@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/Dinoshauer/linie.svg)](https://travis-ci.org/Dinoshauer/linie)
+[![Coverage Status](https://coveralls.io/repos/Dinoshauer/linie/badge.png)](https://coveralls.io/r/Dinoshauer/linie)
 [![Documentation Status](https://readthedocs.org/projects/linie/badge/?version=latest)](https://readthedocs.org/projects/linie/?badge=latest)
-
 
 Linie
 =====
