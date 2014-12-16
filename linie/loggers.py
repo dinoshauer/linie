@@ -53,7 +53,7 @@ class KwargLogger(logging.Logger):
         Arguments:
             kwargs (``dict``): The keyword arguments to parse
         """
-        _log_kwargs = set(['exc_info', 'extra'])
+        _log_kwargs = {'exc_info', 'extra'}
         return {k:v for k, v in kwargs.items() if k not in _log_kwargs}
 
     def _build_msg(self, msg, kwargs):
