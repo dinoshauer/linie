@@ -7,3 +7,4 @@ Sphinx==1.2.3
 sphinx-autobuild==0.3.0
 sphinx-rtd-theme==0.1.6
 sphinxcontrib-napoleon==0.2.8
+testfixtures==4.1.1testfixtures==4.1.1
