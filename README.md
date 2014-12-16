@@ -1,3 +1,6 @@
+[![Documentation Status](https://readthedocs.org/projects/linie/badge/?version=latest)](https://readthedocs.org/projects/linie/?badge=latest)
+
+
 Linie
 =====
 
