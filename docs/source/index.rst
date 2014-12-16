@@ -1,12 +1,25 @@
-.. linie documentation master file, created by
-   sphinx-quickstart on Tue Dec 16 08:14:15 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. image:: https://travis-ci.org/Dinoshauer/linie.svg?branch=master
+    :target: https://travis-ci.org/Dinoshauer/linie
 
-Welcome to linie's documentation!
-=================================
+.. image:: https://coveralls.io/repos/Dinoshauer/linie/badge.png?branch=master
+  :target: https://coveralls.io/r/Dinoshauer/linie?branch=master
+|
+linie: Line in danish
+=====================
 
-Contents:
+Linie means line in danish and, that is what you want when you log something. A line of information logged somewhere.
+Linie aims to make setting up logging a bit easier and providing a few custom log classes on the side.
+
+**Examples:**
+
+.. toctree::
+    :glob:
+    :maxdepth: 2
+
+    examples/*
+
+
+**API Reference:**
 
 .. toctree::
    :maxdepth: 4
