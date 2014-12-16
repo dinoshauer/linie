@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 4
 
-   linie/linie
+   linie/modules
 
 Indices and tables
 ==================
