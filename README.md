@@ -3,6 +3,12 @@ Linie
 
 http://linie.readthedocs.org/en/latest/
 
+For the latest development version run
+
+    pip install linie --pre
+
+For the latest version run
+
     pip install linie
 
 A collection of handy utilities for logging.
