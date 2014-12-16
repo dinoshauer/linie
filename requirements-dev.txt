@@ -3,3 +3,5 @@ nose-watch==0.9.1
 nosexcover==1.0.10
 pre-commit==0.3.2
 rednose==0.4.1
+Sphinx==1.2.3
+sphinx-autobuild==0.3.0
