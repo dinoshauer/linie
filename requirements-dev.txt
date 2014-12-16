@@ -5,4 +5,5 @@ pre-commit==0.3.2
 rednose==0.4.1
 Sphinx==1.2.3
 sphinx-autobuild==0.3.0
+sphinx-rtd-theme==0.1.6
 sphinxcontrib-napoleon==0.2.8
