@@ -14,32 +14,33 @@ class KwargLogger(logging.Logger):
     Inheriting from ``logging.Logger`` ``KwargLogger`` only modifies
     the log message and makes sure that no extra keywords are sent to the
     internal ``_log`` method.
-    
-    Example:
-        ``log.info('Hello, World!', app='my_app')``
 
-    Example output:
-        ``[2014-11-21 18:14:42,192][INFO] Hello, World! - app=my_app``
+    Arguments:
+        name (``str``, optional): The name of the logger to get
+            *default:* ``root``
+        formatter (``function``, optional): The formatter to use for
+            serializing the extra ``kwargs``. Default is
+            ``KwargLogger#_build_msg`` see the example output above.
+            ``formatter`` must take the following arguments:
+            (``str``, ``dict``, ``str``)
+            The first argument is the log message, the second is the
+            ``dict`` of extra arguments to build the message with, the
+            third argument is ``fmt`` passed into this constructor.
+            *default:* None
+        fmt (``str``, optional): The format to use with the ``formatter``
+            *default:* ``'{}={}'``
+
+    **Example**::
+
+        log.info('Hello, World!', app='my_app')
+
+    **Example output**::
+
+        [2014-11-21 18:14:42,192][INFO] Hello, World! - app=my_app
     """
 
     def __init__(self, name='root', formatter=None, fmt='{}={}', **kwargs):
-        """Call super on ``logging.Logger`` and set the ``formatter`` arg.
-
-        Arguments:
-            name (``str``, optional): The name of the logger to get
-                *default:* ``root``
-            formatter (``function``, optional): The formatter to use for
-                serializing the extra ``kwargs``. Default is
-                ``KwargLogger#_build_msg`` see the example output above.
-                ``formatter`` must take the following arguments:
-                (``str``, ``dict``, ``str``)
-                The first argument is the log message, the second is the
-                ``dict`` of extra arguments to build the message with, the
-                third argument is ``fmt`` passed into this constructor.
-                *default:* None
-            fmt (``str``, optional): The format to use with the ``formatter``
-                *default:* ``'{}={}'``
-        """
+        """Call super on ``logging.Logger`` and set the ``formatter`` arg."""
         self.name = name
         self.formatter = formatter
         self.fmt = fmt
