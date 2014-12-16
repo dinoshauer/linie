@@ -73,14 +73,17 @@ def stream(stream=sys.stdout, fmt=DEFAULT_FORMAT):
     """Log handler that will write to a ``file``-like object like ``stdout``.
 
     Arguments:
-        stream (``file`` optional): Any object which supports write() & flush()
+        stream (``file``, optional): Any object which supports write() & flush()
             methods (From the ``logging.StreamHandler`` see link in Notes)
             Default: ``sys.stdout``
         fmt (``dict``, optional): Set the format for the handler.
-            Default: {
-                'date': '%Y-%m-%d %H:%M:%S',
-                'log': '%(asctime)s [%(levelname)s] %(message)s',
-            }
+
+            **Default:**
+            ::
+                {
+                    'date': '%Y-%m-%d %H:%M:%S',
+                    'log': '%(asctime)s [%(levelname)s] %(message)s',
+                }
 
     Notes:
         docs.python.org/2/library/logging.handlers.html#logging.StreamHandler
