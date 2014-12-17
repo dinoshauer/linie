@@ -5,10 +5,12 @@ We'll start out with some comparisons.
 
 Let's log a line with ``linie.KwargLogger``::
 
+    import logging
     from linie import loggers, handlers
 
+    logging.setLoggerClass(loggers.KwargLogger)
 
-    log = loggers.KwargLogger()
+    log = logging.getLogger('example-logger')
     log.addHandler(handlers.stream())
 
     log.info('Hello World', process_num=1)
@@ -18,11 +20,11 @@ Results in a line like this::
     2014-12-16 21:38:32 [INFO] Hello World - process_num=1
 
 Here's the equivalent using only the standard ``logging`` module::
-    
+
     import sys
     import logging
 
-    log = logging.getLogger()
+    log = logging.getLogger('example-logger')
     log.setLevel(logging.INFO)
 
     handler = logging.StreamHandler(sys.stdout)
