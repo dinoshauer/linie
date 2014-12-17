@@ -1,6 +1,8 @@
 KwargLogger example
 ===================
 
+We'll start out with some comparisons.
+
 Let's log a line with ``linie.KwargLogger``::
 
     from linie import loggers, handlers
@@ -33,3 +35,8 @@ Here's the equivalent using only the standard ``logging`` module::
 Results in an identical line::
 
     2014-12-16 21:51:55 [INFO] Hello World - process_num=1
+
+The downside of using the standard logging library is that since,
+``%(process_num)s`` is defined in the formatter a ``KeyError`` will be thrown
+if it isn't passed in the ``extra`` dict. Linie's ``KwargLogger`` doesn't care
+about that.
