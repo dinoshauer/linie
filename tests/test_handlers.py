@@ -4,7 +4,7 @@ import logging
 from testfixtures import LogCapture
 from unittest import TestCase
 
-from linie import handlers
+from linie import handlers, exceptions
 from linie.handlers import DEFAULT_FORMAT, _check_keys, _check_values, _get_fmts
 
 
@@ -23,11 +23,15 @@ class TestStreamHandlerPrivates(TestCase):
         """Assert that the function can compare two lists."""
         result = _check_keys(self.mock_fmts.keys(), self.mock_fmts.keys())
         assert result is True
+        with self.assertRaises(exceptions.InvalidListError):
+            _check_keys(['foo'], ['bar'])
 
     def test__check_values(self):
         """The function can check that a list of values is a specific type."""
         result = _check_values(self.mock_fmts.values(), str)
         assert result is True
+        with self.assertRaises(exceptions.InvalidValueType):
+            _check_values([1], str)
 
     def test__get_fmts(self):
         """The function should return a tuple of ``str``s."""

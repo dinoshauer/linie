@@ -29,7 +29,9 @@ def _check_keys(keys, spec):
             equal to ``spec``.
     """
     if not sorted(keys) == sorted(spec):
-        raise exceptions.InvalidListError('{} does not equal {}'.format(key, spec))
+        raise exceptions.InvalidListError('{} does not equal {}'.format(
+            keys, spec
+        ))
     return True
 
 
