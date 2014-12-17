@@ -6,8 +6,6 @@ from unittest import TestCase
 
 from linie import loggers, handlers
 
-logging.setLoggerClass(loggers.KwargLogger)
-
 
 class TestKwargLogger(TestCase):
 
@@ -23,6 +21,8 @@ class TestKwargLogger(TestCase):
 
     def setUp(self):
         """Set up mocks."""
+        logging.setLoggerClass(loggers.KwargLogger)
+
         self.log_name = 'test-logger'
         self.msg = 'Hello, world!'
         self.log_kwargs = {'foo': 'bar', }
