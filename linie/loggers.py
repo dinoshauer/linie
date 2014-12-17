@@ -83,38 +83,3 @@ class KwargLogger(logging.getLoggerClass()):
             'extra': kwargs.get('extra'),
         }
         super(KwargLogger, self)._log(level, msg, args, **kwargs)
-
-
-class JsonLogger(logging.getLoggerClass()):
-    """A logger that logs JSON lines.
-
-    Provide a JSON serializable object or keyword arguments
-
-    Example:
-        ``log.info({'message': 'Hello World'})``
-        ``log.info(message='Hello World')``
-
-    Example output:
-        ```
-            {
-                'timestamp': '2014-12-02 18:32:50,101',
-                'level': 'info',
-                'message': 'Hello World'
-            }
-        ```
-    """
-    def __init__(self, serializer=json, serializer_opts=None, **kwargs):
-        """Call super on the parent logger and set the ``serializer`` arg.
-
-        Arguments:
-            serializer (``function`` optional): The JSON serializer to use
-                for the log lines, must implement the ``dumps`` method
-            serializer_opts (``dict`` optional): A ``dict`` of options
-                for the ``serializer`` can be provided. It will be splatted
-                into the ``serializer``
-        """
-        self.serializer = serializer
-        self.serializer_opts = serializer_opts
-
-    def _log(self, level, msg, args, exc_info=None, extra=None, **kwargs):
-        super(JsonLogger, self)._log(level, msg, args, **kwargs)

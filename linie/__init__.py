@@ -2,6 +2,7 @@
 
 from . import loggers
 from . import handlers
+from . import formatters
 
 __version__ = '0.0.0-dev1'
 __name__ = 'linie'
