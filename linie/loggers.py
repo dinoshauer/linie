@@ -6,12 +6,12 @@ import logging
 __all__ = ('KwargLogger', )
 
 
-class KwargLogger(logging.Logger):
+class KwargLogger(logging.getLoggerClass()):
     """A logger with extra keyword arguments.
 
     Send any keyword argument when you call the normal log functions
     like info, warn, debug etc.
-    Inheriting from ``logging.Logger`` ``KwargLogger`` only modifies
+    Inheriting from ``logging.getLoggerClass()`` ``KwargLogger`` only modifies
     the log message and makes sure that no extra keywords are sent to the
     internal ``_log`` method.
 
@@ -40,7 +40,7 @@ class KwargLogger(logging.Logger):
     """
 
     def __init__(self, name='root', formatter=None, fmt='{}={}', **kwargs):
-        """Call super on ``logging.Logger`` and set the ``formatter`` arg."""
+        """Call super on the parent logger and set the ``formatter`` arg."""
         self.name = name
         self.formatter = formatter
         self.fmt = fmt
@@ -75,7 +75,7 @@ class KwargLogger(logging.Logger):
             return self.formatter(msg, kwargs, fmt=self.fmt)
 
     def _log(self, level, msg, args, exc_info=None, extra=None, **kwargs):
-        """Method overriding ``logging.Logger._log`` only modifying the msg."""
+        """Method overriding ``super._log`` only modifying the msg."""
         kwargs = self._parse_kwargs(kwargs)
         msg = self._build_msg(msg, kwargs)
         kwargs = {
@@ -85,11 +85,11 @@ class KwargLogger(logging.Logger):
         super(KwargLogger, self)._log(level, msg, args, **kwargs)
 
 
-class JsonLogger(logging.Logger):
+class JsonLogger(logging.getLoggerClass()):
     """A logger that logs JSON lines.
 
     Provide a JSON serializable object or keyword arguments
-    
+
     Example:
         ``log.info({'message': 'Hello World'})``
         ``log.info(message='Hello World')``
@@ -104,7 +104,7 @@ class JsonLogger(logging.Logger):
         ```
     """
     def __init__(self, serializer=json, serializer_opts=None, **kwargs):
-        """Call super on ``logging.Logger`` and set the ``serializer`` arg.
+        """Call super on the parent logger and set the ``serializer`` arg.
 
         Arguments:
             serializer (``function`` optional): The JSON serializer to use
@@ -118,4 +118,3 @@ class JsonLogger(logging.Logger):
 
     def _log(self, level, msg, args, exc_info=None, extra=None, **kwargs):
         super(JsonLogger, self)._log(level, msg, args, **kwargs)
-
