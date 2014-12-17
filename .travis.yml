@@ -6,6 +6,6 @@ python:
 install:
   - "pip install -r requirements-dev.txt"
   - "pip install coveralls"
-script: "nosetests --with-coverage linie tests/"
+script: "nosetests --with-coverage linie tests/test_handlers.py"
 after_success:
   - coveralls
